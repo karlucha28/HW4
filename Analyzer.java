@@ -180,7 +180,7 @@ public class Analyzer {
     
 
 
-    // parse a single valid movie record
+    // parse a single valid movie record ( take the line and use the arrays to create new Movie objs)
     private static Movie parseMovieRecord(String line, int lineNumber){
         if (!isValidMovieRecord(line, lineNumber)){
             return null;
