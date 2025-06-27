@@ -8,18 +8,18 @@ class Movie implements Comparable<Movie> {
     private String title;
     private int year;
     private String genre;
-    private int rating1, rating2, raiting3;
+    private int rating1, rating2, rating3;
     private double averageRating;
 
-    public Movie(String title, int year, String genre, int rating1, int rating2, int raiting3){
+    public Movie(String title, int year, String genre, int rating1, int rating2, int rating3){
         this.title = title;
         this.year = year;
         this.genre = genre;
         this.rating1 = rating1;
         this.rating2 = rating2;
-        this.raiting3 = raiting3;
+        this.rating3 = rating3;
         //get the average
-        this.averageRating = (rating1 + rating2 + raiting3) / 3.0; //double
+        this.averageRating = (rating1 + rating2 + rating3) / 3.0; //double
     }
 
 
@@ -139,7 +139,7 @@ public class Analyzer {
 
             //validation: rating must be 1 - 100
             for (int i = 3; i <= 5; i++){
-                int rating = Integer.parseInt((fields[i].trim()));
+                int rating = Integer.parseInt(fields[i].trim());
                 if ( rating < 1 || rating > 100){
                     System.err.println("Error on line " + lineNumber + ": Rating must be between 1-100, found " + rating);
                     return false;
@@ -148,7 +148,7 @@ public class Analyzer {
 
             return true;
         } catch (NumberFormatException e){
-            System.err.println(("Error on line " + lineNumber + ": Invalid number format"));
+            System.err.println("Error on line " + lineNumber + ": Invalid number format");
             return false;
         }
     }
@@ -190,11 +190,11 @@ public class Analyzer {
             String title = fields[0].trim();
             int year = Integer.parseInt(fields[1].trim());
             String genre = fields[2].trim();
-            int raiting1 = Integer.parseInt(fields[3].trim());
-            int raiting2 = Integer.parseInt(fields[4].trim());
-            int raiting3 = Integer.parseInt(fields[5].trim());
+            int rating1 = Integer.parseInt(fields[3].trim());
+            int rating2 = Integer.parseInt(fields[4].trim());
+            int rating3 = Integer.parseInt(fields[5].trim());
 
-            return new Movie(title, year, genre, raiting1, raiting2, raiting3);
+            return new Movie(title, year, genre, rating1, rating2, rating3);
 
     } catch (Exception e) {
         return null;
